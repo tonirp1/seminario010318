@@ -44,7 +44,10 @@ controller.hears(["espai"], 'direct_message,direct_mention', function (bot, mess
                                  var responseObj = JSON.parse(response);
                                  if(responseObj.items.length > 0){
                                    responseObj.items.forEach(function(element) {
-                                     var param = {"teamId": roomId, "roomId" : roomId, "personEmail" : element.personEmail, "isModerator" : element.isModerator };
+                                     var param = {"teamId": roomId, 
+                                     "roomId" : roomId, 
+                                     "personEmail" : element.personEmail, 
+                                     "isModerator" : element.isModerator };
                                      spark.memberships.create(param, function(err, response){
                                         console.log(err);   });
                                     });
